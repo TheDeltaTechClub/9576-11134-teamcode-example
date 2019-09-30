@@ -1,4 +1,4 @@
-Team 9576's Team Code for the 2018-2019 FTC season ("Rover Ruckus")
+A template for the driver controller app for team 9576 and team 11134.
 
 Based off of First Tech Challenge App
 https://github.com/ftctechnh/ftc_app/
