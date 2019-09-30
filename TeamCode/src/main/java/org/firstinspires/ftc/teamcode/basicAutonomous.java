@@ -6,9 +6,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 
 import java.util.Date;
 
-@Autonomous(name="AutoLanderOnly")
-public class basicAutonomous_BASE extends OpMode {
-    DcMotor extendo_arm;
+@Autonomous(name="BasicAutonomous")
+public class basicAutonomous extends OpMode {
     DcMotor leftDrive;
     DcMotor rightDrive;
     long waitTime = 0;
@@ -21,8 +20,6 @@ public class basicAutonomous_BASE extends OpMode {
 
     @Override
     public void init() {
-        extendo_arm = hardwareMap.dcMotor.get("extendo_arm");
-        extendo_arm.setDirection(DcMotor.Direction.REVERSE);
         leftDrive = hardwareMap.dcMotor.get("leftMotor");
         rightDrive = hardwareMap.dcMotor.get("rightMotor");
         leftDrive.setDirection(DcMotor.Direction.FORWARD);
@@ -40,12 +37,21 @@ public class basicAutonomous_BASE extends OpMode {
             if (timeMilli >= waitTime) {
                 switch (phase) {
                     case 0:
-                        extendo_arm.setPower(1.0);
+                        leftDrive.setPower(1.0);
+                        rightDrive.setPower(1.0);
                         nextWaitTime = 2000;
                         break;
                     case 1:
-                        extendo_arm.setPower(0.0);
+                        leftDrive.setPower(-1.0);
+                        nextWaitTime = 1000;
                         break;
+                    case 2:
+                        leftDrive.setPower(1.0);
+                        nextWaitTime = 2000;
+                        break;
+                    case 3:
+                        leftDrive.setPower(0.0);
+                        rightDrive.setPower(0.0);
                     default:
                         break;
                 }
