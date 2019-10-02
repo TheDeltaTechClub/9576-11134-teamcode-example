@@ -22,8 +22,8 @@ public class basicAutonomous extends OpMode {
     public void init() {
         leftDrive = hardwareMap.dcMotor.get("leftMotor");
         rightDrive = hardwareMap.dcMotor.get("rightMotor");
-        leftDrive.setDirection(DcMotor.Direction.FORWARD);
-        rightDrive.setDirection(DcMotor.Direction.REVERSE);
+        leftDrive.setDirection(DcMotor.Direction.REVERSE);
+        rightDrive.setDirection(DcMotor.Direction.FORWARD);
         telemetry.addData("Status:", "Loaded variables and ready for loop");
         telemetry.update();
     }
@@ -52,6 +52,7 @@ public class basicAutonomous extends OpMode {
                     case 3:
                         leftDrive.setPower(0.0);
                         rightDrive.setPower(0.0);
+                        break;
                     default:
                         break;
                 }
