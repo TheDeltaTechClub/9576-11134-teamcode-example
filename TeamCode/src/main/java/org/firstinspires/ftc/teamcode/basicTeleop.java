@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.util.Range;
 
-@TeleOp(name="RobotDrive")
+@TeleOp(name="BasicTeleOp")
 public class basicTeleop extends OpMode {
 
         DcMotor leftDrive;
